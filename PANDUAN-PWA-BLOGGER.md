@@ -3,10 +3,11 @@
 Blogger tidak punya fitur PWA bawaan, jadi kita "menyelundupkan" file `manifest.json` dan `sw.js` lewat hosting gratis, lalu menautkannya ke tema Blogger.
 
 ## File yang sudah disiapkan
-1. `manifest.json` — info nama, warna, dan ikon PWA
-2. `sw.js` — service worker untuk efek offline & installable
-3. `blogger-pwa-snippet.html` — kode yang ditempel ke tema Blogger
-4. Folder `favicon-dimasbn/` — semua ukuran ikon yang dipakai manifest
+1. `manifest.json` — info nama, warna, dan ikon PWA (icon di-host di Vercel: `pwa-dimasbn.vercel.app`)
+2. `blogger-pwa-snippet.html` — kode yang ditempel ke tema Blogger
+3. Folder `favicon-dimasbn/` — semua ukuran ikon yang dipakai manifest
+
+> **Catatan:** `sw.js` (service worker) sengaja **di-skip**. Alasannya, service worker hanya bisa diregistrasi dari origin yang sama dengan halaman yang memanggilnya — sementara `sw.js` di-host di Vercel (origin berbeda dari `dimasbn.my.id`), jadi registrasinya akan gagal kalau tetap dipaksakan. Dengan skip ini, fitur **offline caching tidak aktif**, tapi fitur **"Add to Home Screen" / Install App tetap berfungsi normal** karena itu hanya bergantung pada `manifest.json`, bukan service worker.
 
 ## Langkah 1 — Hosting file manifest.json dan sw.js
 
@@ -22,12 +23,10 @@ Blogger tidak mengizinkan upload file `.json` atau `.js` sembarangan, jadi file 
 **Opsi B — Custom domain root**
 Jika suatu saat pindah dari Blogger ke hosting sendiri (misalnya lewat jasa WordPress yang sudah dijalankan), file bisa langsung ditaruh di root domain sehingga URL `https://dimasbn.my.id/manifest.json` berfungsi langsung tanpa perlu ganti alamat.
 
-> ⚠️ Catatan penting: karena Blogger dan file manifest/sw kemungkinan ada di domain/path berbeda (kecuali pakai Opsi B), beberapa fitur PWA (terutama service worker) punya batasan **same-origin**. Service worker hanya bisa mengontrol halaman dari origin yang sama dengan lokasi file `sw.js`. Kalau manifest & sw di-hosting di GitHub Pages sementara blog di domain Blogger, service worker tidak akan bisa meng-cache halaman blog itu sendiri — PWA tetap akan "installable" (ada tombol Add to Home Screen) tapi kemampuan offline-nya terbatas. Untuk offline caching penuh, file `sw.js` sebaiknya di-hosting di domain yang sama dengan blog.
-
 ## Langkah 2 — Edit Tema Blogger
 1. Login ke Blogger → pilih blog → **Tema** → **Edit HTML**
 2. Cari tag `</head>` — tempel bagian pertama dari `blogger-pwa-snippet.html` (link manifest + meta tags) tepat sebelum tag itu
-3. Cari tag `</body>` — tempel bagian kedua (script pendaftaran service worker) tepat sebelum tag itu
+3. Cari tag `</body>` — tempel bagian kedua (script logika tombol install) tepat sebelum tag itu
 4. Simpan tema
 
 ## Langkah 3 — Uji Coba

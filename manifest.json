@@ -10,14 +10,14 @@
   "theme_color": "#1e2963",
   "lang": "id",
   "icons": [
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-48.png", "sizes": "48x48", "type": "image/png" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-96.png", "sizes": "96x96", "type": "image/png" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-128.png", "sizes": "128x128", "type": "image/png" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-144.png", "sizes": "144x144", "type": "image/png" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-152.png", "sizes": "152x152", "type": "image/png" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
