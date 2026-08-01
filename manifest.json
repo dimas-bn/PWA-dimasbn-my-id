@@ -1,0 +1,23 @@
+{
+  "name": "dimasbn.my.id",
+  "short_name": "Dimas BN",
+  "description": "Website Guru Informatika yang membangun Aplikasi Pendidikan Gratis dan Jasa Pembuatan Website — menghadirkan Teknologi untuk Sekolah dan Masyarakat.",
+  "start_url": "https://dimasbn.my.id/?utm_source=pwa",
+  "scope": "https://dimasbn.my.id/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1e2963",
+  "theme_color": "#1e2963",
+  "lang": "id",
+  "icons": [
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "https://dimasbn.my.id/logo-dimasbn-my-id-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
