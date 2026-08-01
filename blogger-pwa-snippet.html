@@ -1,0 +1,51 @@
+<!-- ================================================================
+     SNIPPET PWA UNTUK BLOGGER — dimasbn.my.id
+     Tempel bagian di bawah TEPAT SEBELUM tag </head> di:
+     Tema > Edit HTML
+     ================================================================ -->
+
+<!-- 1. Hubungkan manifest.json (di-hosting di Vercel, lihat panduan) -->
+<link rel="manifest" href="https://pwa-dimasbn.vercel.app/manifest.json"/>
+
+<!-- 2. Theme color untuk browser Android (warna status bar saat PWA dibuka) -->
+<meta name="theme-color" content="#1e2963"/>
+
+<!-- 3. Dukungan iOS (Safari tidak baca manifest.json, jadi perlu tag tambahan) -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="DimasBN"/>
+<link rel="apple-touch-icon" href="https://pwa-dimasbn.vercel.app/logo-dimasbn-my-id-192.png"/>
+
+<!-- ================================================================
+     4. Logika Tombol Install (TANPA Service Worker)
+     Tempel bagian ini TEPAT SEBELUM tag </body>
+
+     Catatan: Service Worker sengaja di-skip (Opsi 1) karena sw.js
+     tidak bisa di-host cross-domain (Vercel) dan diregistrasi dari
+     halaman Blogger (dimasbn.my.id) — browser menolak registrasi
+     lintas origin semacam ini. Tanpa Service Worker, fitur offline
+     caching tidak aktif, tapi fitur "Add to Home Screen" / Install
+     tetap berfungsi normal karena hanya bergantung pada manifest.json.
+     ================================================================ -->
+<script>
+//<![CDATA[
+// Tombol "Install App" custom (opsional).
+// Kalau punya elemen tombol dengan id="install-pwa-btn", ini akan mengaktifkannya.
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', function (e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('install-pwa-btn');
+  if (btn) {
+    btn.style.display = 'inline-block';
+    btn.addEventListener('click', function () {
+      btn.style.display = 'none';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function () {
+        deferredPrompt = null;
+      });
+    });
+  }
+});
+//]]>
+</script>
