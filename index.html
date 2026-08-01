@@ -1,0 +1,56 @@
+<!-- ================================================================
+     SNIPPET PWA UNTUK BLOGGER — dimasbn.my.id
+     Tempel bagian di bawah TEPAT SEBELUM tag </head> di:
+     Tema > Edit HTML
+     ================================================================ -->
+
+<!-- 1. Hubungkan manifest.json (harus di-hosting terpisah, lihat panduan) -->
+<link rel="manifest" href="https://dimasbn.my.id/manifest.json"/>
+
+<!-- 2. Theme color untuk browser Android (warna status bar saat PWA dibuka) -->
+<meta name="theme-color" content="#1e2963"/>
+
+<!-- 3. Dukungan iOS (Safari tidak baca manifest.json, jadi perlu tag tambahan) -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="DimasBN"/>
+<link rel="apple-touch-icon" href="https://dimasbn.my.id/favicon-192x192.png"/>
+
+<!-- ================================================================
+     4. Pendaftaran Service Worker
+     Tempel bagian ini TEPAT SEBELUM tag </body>
+     ================================================================ -->
+<script>
+//<![CDATA[
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('https://dimasbn.my.id/sw.js')
+      .then(function (reg) {
+        console.log('Service Worker berhasil didaftarkan:', reg.scope);
+      })
+      .catch(function (err) {
+        console.log('Pendaftaran Service Worker gagal:', err);
+      });
+  });
+}
+
+// Tombol "Install App" custom (opsional).
+// Kalau punya elemen tombol dengan id="install-pwa-btn", ini akan mengaktifkannya.
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', function (e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('install-pwa-btn');
+  if (btn) {
+    btn.style.display = 'inline-block';
+    btn.addEventListener('click', function () {
+      btn.style.display = 'none';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function () {
+        deferredPrompt = null;
+      });
+    });
+  }
+});
+//]]>
+</script>
